@@ -1,0 +1,79 @@
+﻿@model CrudNetCore5.Models.Libro;
+@{
+    ViewData["Title"] = "Agregar libro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <!--fila-->
+    <div class="row">
+        <!--columnas-->
+        <div class="col-6">
+            <h3>Agregar nuevo libro</h3>
+        </div>
+
+    </div>
+
+    <!--fila-->
+    <div class="row">
+        <!--condicional-->
+        <div class="col-sm-10">
+            <form method="post" asp-action="Create">
+                <!--vaidacion lado server (modelo)-->
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <!--form group-->
+                <!--titulo-->
+                <div class="form-group">
+                    <!--no pasamos nada en texto ya que ya lo toma con el asp-for-->
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+                <!--Descripcion-->
+                <div class="form-group">
+                    <!--no pasamos nada en texto ya que ya lo toma con el asp-for-->
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input asp-for="Descripcion" class="form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+                <!--fecha-->
+                <div class="form-group">
+                    <!--no pasamos nada en texto ya que ya lo toma con el asp-for-->
+                    <label asp-for="fechaLanzamiento" class="control-label"></label>
+                    <input asp-for="fechaLanzamiento" class="form-control" />
+                    <span asp-validation-for="fechaLanzamiento" class="text-danger"></span>
+                </div>
+                <!--autor-->
+                <div class="form-group">
+                    <!--no pasamos nada en texto ya que ya lo toma con el asp-for-->
+                    <label asp-for="autor" class="control-label"></label>
+                    <input asp-for="autor" class="form-control" />
+                    <span asp-validation-for="autor" class="text-danger"></span>
+                </div>
+                <!--precio-->
+                <div class="form-group">
+                    <!--no pasamos nada en texto ya que ya lo toma con el asp-for-->
+                    <label asp-for="precio" class="control-label"></label>
+                    <input asp-for="precio" class="form-control" />
+                    <span asp-validation-for="precio" class="text-danger"></span>
+                </div>
+
+
+                <!--boton-->
+                <div class="form-group">
+                    <input type="submit" value="Crear libro" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<!--codigo js (scripts) para validaciones lado del cliente-->
+@section Scripts{
+    <!--llamada vista parcial (_ValidationScriptsPartial) parte de js,jq que realiza esto-->
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+}
+
